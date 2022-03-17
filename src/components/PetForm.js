@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PetForm = ({handlePetSubmit}) => {
     const [petName, setPetName] = useState("");
@@ -26,12 +26,23 @@ const PetForm = ({handlePetSubmit}) => {
         if (!petName || !petType || !petBreed || !petAge){
             return
         }
-        handlePetSubmit({
+
+        let newPet = {
             name: petName,
             type: petType,
             breed: petBreed,
             age: petAge
-        });
+        }
+        handlePetSubmit(newPet);
+
+        fetch("http://localhost:8080/pets",
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPet)
+        })
 
         setPetName("");
         setPetType("");
