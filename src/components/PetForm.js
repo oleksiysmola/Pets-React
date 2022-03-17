@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const PetForm = ({handlePetSubmit}) => {
     const [petName, setPetName] = useState("");
@@ -54,13 +54,13 @@ const PetForm = ({handlePetSubmit}) => {
     return (
         <form id="pet-form">
             <label htmlFor="petame">Pet name:</label>
-            <input type="text" id="petname" name="petname" value={petName} onChange={handlePetNameChange}></input>
+            <input type="text" id="petname" name="petname" value={petName} onChange={handlePetNameChange} className="form-entry"></input>
             <label htmlFor="pettype">Pet type:</label>
-            <input type="text" id="pettype" name="pettype" value={petType} onChange={handlePetTypeChange}></input>
+            <input type="text" id="pettype" name="pettype" value={petType} onChange={handlePetTypeChange} className="form-entry"></input>
             <label htmlFor="petbreed">Pet breed:</label>
-            <input type="text" id="petbreed" name="petbreed" value={petBreed} onChange={handlePetBreedChange}></input>
+            <input type="text" id="petbreed" name="petbreed" value={petBreed} onChange={handlePetBreedChange} className="form-entry"></input>
             <label htmlFor="petage">Pet age:</label>
-            <input type="text" id="petage" name="petage" value={petAge} onChange={handlePetAgeChange}></input>
+            <input type="text" id="petage" name="petage" value={petAge} onChange={handlePetAgeChange} className="form-entry"></input>
 
             <button id="submit-button" type="submit" value="Post" onClick={handleFormSubmit}>Submit</button>
         </form>
